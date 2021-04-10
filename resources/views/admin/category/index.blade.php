@@ -2,6 +2,12 @@
 @section('sub-judul', 'Kategori')
 @section('content')
 
+    @if (Session::has('success'))
+    <div class="alert alert-success" role="alert">
+        {{ Session('success') }}
+    </div>
+    @endif
+
     <a href="{{ route('category.create') }}" class="btn btn-info btn-sm">Tambah Kategori</a>
     <br><br>
 
@@ -19,7 +25,7 @@
                         <td>{{ $result + $category->firstitem() }}</td>
                         <td>{{ $hasil->name }}</td>
                         <td>
-                            <a href="" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{{ route('category.edit', $hasil->id) }}" class="btn btn-primary btn-sm">Edit</a>
                             <a href="" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
