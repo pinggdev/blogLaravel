@@ -1,5 +1,5 @@
 @extends('template_backend.home')
-@section('sub-judul', 'Tambah Kategori')
+@section('sub-judul', 'Tambah Tag')
 @section('content')
     @if (count($errors)>0)
         @foreach($errors->all() as $error)
@@ -15,14 +15,14 @@
         </div>
     @endif
 
-    <form action="{{ route('category.store') }}" method="POST">
+    <form action="{{ route('tag.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label>Kategori</label>
+            <label>Tag</label>
             <input type="text" class="form-control" name="name">
         </div>
         <div class="form-group">
-            <button class="btn btn-primary btn-block">Simpan Kategori</button>
+            <button class="btn btn-primary btn-block">Simpan Tag</button>
         </div>
     </form>
 @endsection
