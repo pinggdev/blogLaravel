@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Posts;
 use App\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -53,10 +54,11 @@ class PostController extends Controller
             'judul' => $request->judul,
             'category_id' => $request->category_id,
             'content' => $request->content,
-            'gambar' => 'public/uploads/posts'.$new_gambar
+            'gambar' => 'public/uploads/posts/'.$new_gambar,
+            'slug' => Str::slug($request->judul)
         ]);
 
-        $gambar->move('public/uploads/posts', $new_gambar);
+        $gambar->move('public/uploads/posts/', $new_gambar);
         return redirect()->back()->with('success', 'Postingan anda berhasil disimpan');
     }
 
