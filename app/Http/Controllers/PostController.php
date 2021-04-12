@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Tags;
 use App\Posts;
 use App\Category;
 use Illuminate\Support\Str;
@@ -27,9 +28,10 @@ class PostController extends Controller
      */
     public function create()
     {
+        $tags = Tags::all();
         $category = Category::all();
 
-        return view('admin.post.create', compact('category'));
+        return view('admin.post.create', compact('category', 'tags'));
     }
 
     /**
@@ -57,6 +59,8 @@ class PostController extends Controller
             'gambar' => 'public/uploads/posts/'.$new_gambar,
             'slug' => Str::slug($request->judul)
         ]);
+
+        $post->tags()->attach($request->tags);
 
         $gambar->move('public/uploads/posts/', $new_gambar);
         return redirect()->back()->with('success', 'Postingan anda berhasil disimpan');
