@@ -17,6 +17,8 @@
                 <th>No</th>
                 <th>Nama Post</th>
                 <th>Kategori</th>
+                <th>Daftar Tags</th>
+                <th>Thumbnail</th>
                 <th>Action</th>
             </tr>
         </thead>
