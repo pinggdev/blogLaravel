@@ -143,6 +143,29 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Posts::findorfail($id);
+        $post->delete();
+
+        return redirect()->back()->with('success', 'Post anda berhasil dihapus (Silahkan cek trashed post)');
+    }
+
+    public function tampil_hapus() {
+        $post = Posts::onlyTrashed()->paginate(10);
+
+        return view('admin.post.hapus', compact('post'));
+    }
+
+    public function restore($id) {
+        $post = Posts::withTrashed()->where('id', $id)->first();
+        $post->restore();
+
+        return redirect()->back()->with('success', 'Post anda berhasil direstore (Silahkan cek list post)');
+    }
+
+    public function kill($id) {
+        $post = Posts::withTrashed()->where('id', $id)->first();
+        $post->forceDelete();
+
+        return redirect()->back()->with('success', 'Post anda berhasil dihapus secara permanen');
     }
 }
