@@ -18,6 +18,7 @@
                 <th>Nama Post</th>
                 <th>Kategori</th>
                 <th>Daftar Tags</th>
+                <th>Creator</th>
                 <th>Thumbnail</th>
                 <th>Action</th>
             </tr>
@@ -30,11 +31,12 @@
                         <td>{{ $hasil->category->name }}</td>
                         <td>
                             @foreach ($hasil->tags as $tag)
-                                <ul>
-                                    <li>{{ $tag->name }}</li>
-                                </ul>
+                                <h6>
+                                    <span class="badge badge-info">{{ $tag->name }}</span>
+                                </h6>
                             @endforeach
                         </td>
+                        <td>{{ $hasil->users->name }}</td>
                         <td><img src="{{ asset( $hasil->gambar ) }}" class="img-fluid" style="width: 100px;"></td>
                         <td>
                             <form action="{{ route('post.destroy', $hasil->id) }}" method="POST">
