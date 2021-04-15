@@ -30,4 +30,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/post/kill/{id}', 'PostController@kill')->name('post.kill');
     
     Route::resource('/post', 'PostController');
+    Route::resource('/user', 'UserController');
 });
