@@ -8,7 +8,7 @@
     </div>
     @endif
 
-    <a href="{{ route('category.create') }}" class="btn btn-info btn-sm">Tambah User</a>
+    <a href="{{ route('user.create') }}" class="btn btn-info btn-sm">Tambah User</a>
     <br><br>
 
     <table class="table table-striped table-hover table-sm table-bordered">
