@@ -1,6 +1,6 @@
 @extends('template_blog.content')
 @section('isi')
-<div class="col-md-8 hot-post-left">
+				<div class="col-md-8 hot-post-left">
 					<!-- post -->
 					<div class="post post-thumb">
 						<a class="post-img" href="blog-post.html"><img src="{{ asset('public/frontend/img/hot-post-1.jpg') }}" alt=""></a>
@@ -60,7 +60,7 @@
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
-			<div class="row">
+			< class="row">
 				<div class="col-md-8">
 					<!-- row -->
 					<div class="row">
@@ -93,6 +93,5 @@
 					<!-- /row -->
 				</div>
 			<!-- /row -->
-</div>
 @endsection
 
