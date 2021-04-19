@@ -60,7 +60,7 @@
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
-			< class="row">
+			<div class="row">
 				<div class="col-md-8">
 					<!-- row -->
 					<div class="row">

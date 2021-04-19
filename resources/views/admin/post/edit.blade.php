@@ -33,7 +33,7 @@
         </div>
         <div class="form-group">
             <label>Konten</label>
-            <textarea name="content" class="form-control">{{ $post->content }}</textarea>
+            <textarea name="content" class="form-control" id="content">{{ $post->content }}</textarea>
         </div>
         <div class="form-group">
             <label>Pilih tags</label>
@@ -53,4 +53,16 @@
             <button class="btn btn-primary btn-block">Update Post</button>
         </div>
     </form>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+            .create( document.querySelector( '#content' ) )
+            .then( editor => {
+                    console.log( editor );
+            } )
+            .catch( error => {
+                    console.error( error );
+            } );
+</script>
 @endsection

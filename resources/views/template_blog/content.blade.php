@@ -12,5 +12,6 @@
         </div>
 		<!-- /container -->
 	</div>
+</div>
 	<!-- /SECTION -->
     @include('template_blog.footer')
