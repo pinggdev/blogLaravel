@@ -8,6 +8,7 @@ use App\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
@@ -166,6 +167,8 @@ class PostController extends Controller
 
     public function kill($id) {
         $post = Posts::withTrashed()->where('id', $id)->first();
+        $filename = $post->gambar;
+        File::delete($filename);
         $post->forceDelete();
 
         return redirect()->back()->with('success', 'Post anda berhasil dihapus secara permanen');
